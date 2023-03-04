@@ -1,20 +1,125 @@
 .navbar {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #878383;
+    color: #fff;
+    transition: all 250ms ease;
+    position: sticky;
+    top: 0;
+
+    &.active {
+        background-color: #fff;
+        color: black;
+        .link {
+            color: black;
+        }
+        .join {
+            color: black;
+            border: 1px solid black;
+        }
+    }
     .container {
         width: 1400px;
-        background-color: green;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        margin: 0 auto;
 
-        .logo{
-            .text{}
-            .dot{}
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            font-size: 34px;
+            font-weight: bold;
+            text-transform: lowercase;
+            font-family: "PoppinsBold", sans-serif;
+            cursor: pointer;
+            .text {
+                color: lightblue;
+            }
+            .dot {
+                color: green;
+            }
         }
-        .links{
-            
+        .links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .user {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+                position: relative;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    border: 50%;
+                    object-fit: cover;
+                }
+
+                &__options {
+                    position: absolute;
+                    top: 50px;
+                    right: 0;
+                    padding: 20px;
+                    background-color: #a4a4a4;
+                    border-radius: 10px;
+
+                    display: flex;
+                    flex-direction: column;
+                    min-width: 200px;
+                    span {
+                        padding: 5px 0;
+                    }
+                }
+            }
         }
+
         .links-list {
-            &__item{}
-            .link{}
+            display: flex;
+            list-style: none;
+
+            .link {
+                padding: 5px 10px;
+            }
+        }
+    }
+
+    .join {
+        padding: 10px 20px;
+        background-color: transparent;
+        border-radius: 10px;
+        margin-left: 40px;
+        color: #fff;
+        border: 1px solid #fff;
+        transition: all 250ms ease;
+        &:hover {
+            background-color: rgb(59, 203, 34);
+            border: 1px solid transparent;
+        }
+    }
+
+    hr {
+        width: 100%;
+        height: 0;
+        border: 0.5px solid rgba(211, 211, 211, 0.35);
+        margin: 0;
+    }
+
+    .menu {
+        width: 1400px;
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+
+        &__link {
+            padding: 5px 20px;
         }
     }
 }
