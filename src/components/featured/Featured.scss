@@ -1,0 +1,88 @@
+.featured {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(63, 139, 63);
+    color: #fff;
+
+    .container {
+        width: 1400px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left {
+            max-width: 60%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+
+            h1 {
+                font-size: 50px;
+            }
+
+            .search {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .search-input {
+                    display: flex;
+                    align-items: center;
+                    background-color: #fff;
+                    gap: 10px;
+                    border-radius: 5px;
+                    height: 40px;
+                    overflow: hidden;
+                }
+                img {
+                    height: 20px;
+                    padding: 10px;
+                    opacity: 0.5;
+                }
+
+                input {
+                    border: none;
+                    outline: none;
+                    width: 100%;
+                }
+                button {
+                    margin-left: auto;
+                    width: 120px;
+                    height: inherit;
+                    border: none;
+                    background-color: rgb(0, 189, 63);
+                    color: #fff;
+                    cursor: pointer;
+                    transition: all 250ms ease;
+                    &:hover {
+                        background-color: rgb(1, 202, 68);
+                    }
+                }
+            }
+            .popular {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                span {
+                }
+                button {
+                    margin-left: unset;
+                    padding: 5px 10px;
+                    background-color: transparent;
+                    border-radius: 25px;
+                    border: 1px solid rgb(226, 225, 225);
+                    font-size: 12px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .right {
+            height: 100%;
+            img {
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
