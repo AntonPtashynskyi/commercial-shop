@@ -11,7 +11,7 @@ export const Slide = () => {
     <div className="slide">
       <div className="container">
         <Carousel
-          show={3}
+          show={4}
           leftArrow={<Arrow direction="left" />}
           rightArrow={<Arrow direction="right" />}
           className="slider"

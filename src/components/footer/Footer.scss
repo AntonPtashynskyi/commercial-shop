@@ -1,0 +1,40 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(225, 221, 221, 0.136);
+    .container {
+        width: 1400px;
+        display: flex;
+        flex-direction: column;
+        padding: 60px;
+    }
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+
+        .menu-part {
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                margin-bottom: 20px;
+            }
+
+            a {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .right {
+        display: flex;
+    }
+}

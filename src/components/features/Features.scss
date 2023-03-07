@@ -1,0 +1,106 @@
+.features {
+    background-color: rgba(225, 221, 221, 0.136);
+    .container {
+        width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        padding: 100px;
+
+        h1 {
+            font-size: 34px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .description {
+            max-width: 550px;
+            margin-bottom: 30px;
+            .title {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+
+            img {
+                width: 30px;
+                height: 30px;
+                margin-right: 10px;
+                opacity: 0.5;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+
+        .left {
+            flex: 2;
+        }
+        .right {
+            flex: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            video {
+                max-width: 720px;
+                height: 320px;
+            }
+        }
+    }
+}
+
+.features_2 {
+    background-color: rgb(82, 82, 248);
+    color: #fff;
+    h1 {
+        font-size: 34px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .left {
+        ul {
+            list-style: none;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        button {
+            border: none;
+            border-radius: 4px;
+            background-color: rgb(133, 205, 133);
+            font-size: 14px;
+            padding: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 250ms ease;
+
+            &:hover {
+                background-color: rgb(111, 182, 111);
+            }
+        }
+    }
+
+    .right {
+        img {
+            max-width: 720px;
+            height: 400px;
+        }
+    }
+}
