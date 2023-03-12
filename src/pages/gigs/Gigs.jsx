@@ -20,7 +20,7 @@ export const Gigs = () => {
       <div className="container">
         <span className="breadcrumbs">HOMER > GRAPHICS & DESIGN</span>
         <h1>AI Artist</h1>
-        <p>
+        <p className="desc">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores,
           unde?
         </p>
@@ -36,7 +36,7 @@ export const Gigs = () => {
             <span className="sort-type">
               {sort === "sales" ? "Best Selling" : "Newest"}
             </span>
-            <img src="" alt=">" onClick={() => handleOpen()} />
+            <img src="/imgs/arrow-d.svg" alt=">" onClick={() => handleOpen()} />
             {open && (
               <div className="rightMenu">
                 {sort === "sales" ? (
@@ -50,6 +50,13 @@ export const Gigs = () => {
         </div>
         <div className="cards">
           {/* {gigs.map(item => <GigCard key={gig.id} item={gig}/>)} */}
+          <GigCard />
+          <GigCard />
+          <GigCard />
+          <GigCard />
+          <GigCard />
+          <GigCard />
+          <GigCard />
           <GigCard />
         </div>
       </div>

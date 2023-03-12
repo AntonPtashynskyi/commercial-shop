@@ -1,6 +1,5 @@
 .gigCard {
   width: 324px;
-  height: 370px;
   border: 1px solid rgba(128, 128, 128, 0.379);
   margin-bottom: 25px;
 
@@ -19,9 +18,13 @@
     .user {
       display: flex;
       align-items: center;
-      gap: 10px img {
-        width: 26px;
-        height: 26px;
+      gap: 10px;
+
+      font-weight: bold;
+      color: #000;
+      img {
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
       }
     }
@@ -36,21 +39,20 @@
       gap: 5px;
 
       img {
-        width: 14px;
-        height: 14px;
+        width: 18px;
+        height: 18px;
       }
 
       span {
-        font-size: 14px;
+        font-size: 16px;
         font-weight: bold;
-        color: #111;
+        color: orange;
       }
     }
   }
 
   hr {
-    height: 0;
-    border: 0.5px solid lightgray;
+    border: 1px solid rgb(242, 241, 241);
   }
 
   .details {
@@ -60,15 +62,17 @@
     justify-content: space-between;
 
     img {
-      width: 16px;
-      height: 16px;
+      width: 22px;
+      height: 22px;
       cursor: pointer;
+      color: #f27474;
     }
 
     .price {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      text-align: center;
 
       span {
         color: #999;
