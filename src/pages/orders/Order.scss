@@ -1,0 +1,57 @@
+.orders {
+    display: flex;
+    justify-content: center;
+    .container {
+        width: 1400px;
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .addBtn {
+                padding: 5px 10px;
+                background-color: rgb(68, 179, 68);
+                color: #fff;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                border-radius: 5px;
+                transition: all 250ms ease;
+
+                &:hover {
+                    background-color: rgb(57, 149, 57);
+                }
+            }
+        }
+
+        table {
+            width: 100%;
+            tr {
+                height: 50px;
+                th {
+                    text-align: left;
+                    padding: 0 10px;
+                }
+
+                td {
+                    padding: 0 10px;
+
+                    img {
+                        width: 50x;
+                        height: 25px;
+                        object-fit: cover;
+                    }
+                    .delete {
+                        width: 20px;
+                        height: 20px;
+                        cursor: pointer;
+                    }
+                }
+
+                &:nth-child(even) {
+                    background-color: #efefef;
+                }
+            }
+        }
+    }
+}
