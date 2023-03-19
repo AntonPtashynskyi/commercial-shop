@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { newRequest } from "../../utils/newRequest";
 import "./Navbar.scss";
 
 export const Navbar = () => {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await newRequest.post("api/auth/logout");
+      localStorage.setItem("currentUser", null);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -17,11 +29,7 @@ export const Navbar = () => {
     return () => removeEventListener("scroll", isActive);
   }, []);
 
-  const currentUser = {
-    id: 1,
-    username: "Tony",
-    isSeller: true,
-  };
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   return (
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
@@ -54,7 +62,7 @@ export const Navbar = () => {
                 Sign in
               </a>
             </li>
-            {!currentUser.isSeller && (
+            {!currentUser?.isSeller && (
               <li className="links-list__item">
                 <a href="" className="link">
                   Become a Seller
@@ -63,14 +71,17 @@ export const Navbar = () => {
             )}
           </ul>
           {!currentUser && (
-            <a href="#" className="join">
+            <a href="/register" className="join">
               join
             </a>
           )}
           {currentUser && (
             <div className="user" onClick={() => setOpen((prev) => !prev)}>
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png"
+                src={
+                  currentUser ||
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png"
+                }
                 alt="user"
               />
               <span className="user__name">{currentUser.username}</span>
@@ -84,17 +95,17 @@ export const Navbar = () => {
                       <Link className="link" to="/add">
                         Add new Gigs
                       </Link>
-                      <Link className="link" to="/orders">
-                        Orders
-                      </Link>
-                      <Link className="link" to="/messages">
-                        Messages
-                      </Link>
-                      <Link className="link" to="/">
-                        Logout
-                      </Link>
                     </>
                   )}
+                  <Link className="link" to="/orders">
+                    Orders
+                  </Link>
+                  <Link className="link" to="/messages">
+                    Messages
+                  </Link>
+                  <Link className="link" onClick={handleLogout}>
+                    Logout
+                  </Link>
                 </div>
               )}
             </div>
