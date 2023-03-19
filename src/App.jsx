@@ -12,9 +12,6 @@ import { Login } from "./pages/login/Login";
 import { Messages } from "./pages/messages/Messages";
 import { Message } from "./pages/message/Message";
 import { Footer } from "./components/footer/Footer";
-import { storage } from "./utils/firebase";
-
-console.log(storage);
 
 export const App = () => {
   const Layout = () => {

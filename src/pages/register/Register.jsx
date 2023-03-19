@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { upload } from "../../utils/upload";
 import "./Register.scss";
 
 export const Register = () => {
@@ -11,7 +12,7 @@ export const Register = () => {
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data) => {
-    console.log(data);
+    upload(data.image[0]);
   };
 
   return (
