@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { newRequest } from "../../utils/newRequest";
 import { upload } from "../../utils/upload";
 import "./Register.scss";
 
 export const Register = () => {
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors, isValid },
@@ -11,8 +15,25 @@ export const Register = () => {
     reset,
   } = useForm({ mode: "onBlur" });
 
-  const onSubmit = (data) => {
-    upload(data.image[0]);
+  const onSubmit = async (data) => {
+    setLoading(true);
+    try {
+      const url = await upload(data.image[0]);
+      const newUser = { ...data, image: url };
+      console.log("user", newUser);
+      const response = await newRequest.post("api/auth/register", {
+        ...newUser,
+      });
+      console.log("response", response);
+      navigate("/");
+      reset();
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -73,7 +94,7 @@ export const Register = () => {
             />
           </label>
           <button type="submit" className="registerButton">
-            Register
+            {loading ? "Loading..." : "Register"}
           </button>
         </div>
         <div className="right">
