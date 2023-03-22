@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
+
 import { Navbar } from "./components/navbar/Navbar";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Home } from "./pages/home/Home";
@@ -13,13 +19,17 @@ import { Messages } from "./pages/messages/Messages";
 import { Message } from "./pages/message/Message";
 import { Footer } from "./components/footer/Footer";
 
+const queryClient = new QueryClient();
+
 export const App = () => {
   const Layout = () => {
     return (
       <div className="app">
-        <Navbar />
-        <Outlet />
-        <Footer />
+        <QueryClientProvider client={queryClient}>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </QueryClientProvider>
       </div>
     );
   };

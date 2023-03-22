@@ -57,16 +57,18 @@ export const Navbar = () => {
                 English
               </a>
             </li>
-            <li className="links-list__item">
-              <a href="" className="link">
-                Sign in
-              </a>
-            </li>
             {!currentUser?.isSeller && (
               <li className="links-list__item">
                 <a href="" className="link">
                   Become a Seller
                 </a>
+              </li>
+            )}
+            {!currentUser && (
+              <li className="links-list__item">
+                <Link to="/login" className="link">
+                  Sign in
+                </Link>
               </li>
             )}
           </ul>
@@ -79,7 +81,7 @@ export const Navbar = () => {
             <div className="user" onClick={() => setOpen((prev) => !prev)}>
               <img
                 src={
-                  currentUser ||
+                  currentUser.image ||
                   "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png"
                 }
                 alt="user"

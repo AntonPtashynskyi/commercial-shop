@@ -1,10 +1,20 @@
 import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+
 import { GigCard } from "../../components/gigCard/GigCard";
 import "./Gigs.scss";
+import { newRequest } from "../../utils/newRequest";
 
 export const Gigs = () => {
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("sales");
+
+  const { isPending, error, data } = useQuery({
+    queryKey: ["gigs"],
+    queryFn: () => newRequest("api/gigs"),
+  });
+
+  console.log(data);
 
   const handleOpen = () => {
     setOpen(!open);
