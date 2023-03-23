@@ -7,7 +7,7 @@ export const Gig = () => {
       <div className="container">
         <div className="left">
           <div className="bradCrumbs">Fiver > Graphics & design ></div>
-          <h1>Lorem ipsum dolor sit amet consectetur.</h1>
+          {/* <h1>{title}</h1> */}
           <div className="user">
             <img src="/imgs/avatar.jpg" alt="avatar" />
             <span className="name">Anna Bell</span>
@@ -190,7 +190,7 @@ export const Gig = () => {
           <div className="content">
             <div className="title">
               <p>Lorem, ipsum dolor.</p>
-              <spam className="price">$ 59.99</spam>
+              <span className="price">$ 59.99</span>
             </div>
             <p className="desc">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
