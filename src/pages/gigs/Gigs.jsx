@@ -13,9 +13,6 @@ export const Gigs = () => {
   const maxRef = useRef();
 
   const { search } = useLocation();
-
-  console.log(location);
-
   const {
     isLoading,
     error,
@@ -26,7 +23,7 @@ export const Gigs = () => {
     queryFn: () =>
       newRequest
         .get(
-          `api/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`
+          `api/gigs?${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`
         )
         .then((res) => res.data),
   });
