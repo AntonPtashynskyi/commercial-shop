@@ -13,7 +13,7 @@ export const GigCard = ({ item }) => {
       newRequest.get(`api/users/${userId}`).then((res) => res.data),
   });
   return (
-    <Link to="/gig/123" className="link">
+    <Link to={`/gig/${item?._id}`} className="link">
       <div className="gigCard">
         <img src={cover} alt="" />
         <div className="info">
