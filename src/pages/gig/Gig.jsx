@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useLazyQuery } from "@apollo/client";
 import { newRequest } from "../../utils/newRequest";
 import "./Gig.scss";
+import { Reviews } from "../../components/reviews/Reviews";
 
 export const Gig = () => {
   const { id } = useParams();
@@ -22,7 +23,6 @@ export const Gig = () => {
     queryKey: ["user"],
     queryFn: () =>
       newRequest.get(`api/users/${data?.userId}`).then((res) => {
-        console.log(res.data);
         return res.data;
       }),
     enabled: !!data,
@@ -41,7 +41,7 @@ export const Gig = () => {
               Fiver {">"} Graphics & design {">"}
             </div>
             <h1>{data?.title}</h1>
-            {/* {isLoadingUser ? (
+            {isLoadingUser ? (
               "Loading ..."
             ) : userError ? (
               "Something went wrong"
@@ -60,16 +60,21 @@ export const Gig = () => {
                   </div>
                 )}
               </div>
-            )} */}
+            )}
             <div className="slider">
               SLIDER
               {data?.images.map((image) => (
-                <img src={image} alt="" key={image} />
+                <img
+                  src={image}
+                  alt=""
+                  key={image}
+                  style={{ height: "100%" }}
+                />
               ))}
             </div>
-            <h2 className="about-title">Lorem, ipsum dolor.</h2>
+            <h2 className="about-title">{data.title}</h2>
             <p className="about-desc">{data?.desc}</p>
-            {/* {isLoadingUser ? (
+            {isLoadingUser ? (
               "Loading ..."
             ) : userError ? (
               "Something went wrong"
@@ -84,7 +89,7 @@ export const Gig = () => {
                       className="avatar"
                     />
                     <div className="info">
-                      <span>Name Name</span>
+                      <span>{userData.username}</span>
                       {!isNaN(data.totalStars / data.starNumber) && (
                         <div className="stars">
                           {Array(Math.round(data.totalStars / data.starNumber))
@@ -132,123 +137,8 @@ export const Gig = () => {
                   </div>
                 </div>
               </div>
-            )} */}
-            <div className="reviews">
-              <h2>Reviews</h2>
-              <div className="item">
-                <div className="user">
-                  <img src="/imgs/avatar.jpg" alt="avatar" />
-                  <div className="info">
-                    <span>John Doe</span>
-                    <div className="country">
-                      <img src="/imgs/usa-flag.png" alt="flag" />
-                      <span>United States</span>
-                    </div>
-                  </div>
-                </div>
-                {!isNaN(data.totalStars / data.starNumber) && (
-                  <div className="stars">
-                    {Array(Math.round(data.totalStars / data.starNumber))
-                      .fill()
-                      .map((image, index) => (
-                        <img src="/imgs/star.svg" alt="" key={index} />
-                      ))}
-                    <span>{Math.round(data.totalStars / data.starNumber)}</span>
-                  </div>
-                )}
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Architecto, odit unde. Commodi nisi eos nobis voluptatum
-                  beatae. Rem fugit maxime vitae nihil aliquid enim, tenetur
-                  voluptatibus repudiandae ad, accusamus nisi architecto
-                  reiciendis vel, ratione molestiae? Tenetur quia deserunt odio
-                  magni.
-                </p>
-                <div className="helpful">
-                  <span>Helpful?</span>
-                  <img src="/imgs/like.svg" alt="like" />
-                  <span>Yes</span>
-                  <img src="/imgs/dislike.svg" alt="dislike" />
-                  <span>No</span>
-                </div>
-              </div>
-              <hr />
-              <div className="item">
-                <div className="user">
-                  <img src="/imgs/avatar.jpg" alt="avatar" />
-                  <div className="info">
-                    <span>John Doe</span>
-                    <div className="country">
-                      <img src="/imgs/usa-flag.png" alt="flag" />
-                      <span>United States</span>
-                    </div>
-                  </div>
-                </div>
-                {!isNaN(data.totalStars / data.starNumber) && (
-                  <div className="stars">
-                    {Array(Math.round(data.totalStars / data.starNumber))
-                      .fill()
-                      .map((image, index) => (
-                        <img src="/imgs/star.svg" alt="" key={index} />
-                      ))}
-                    <span>{Math.round(data.totalStars / data.starNumber)}</span>
-                  </div>
-                )}
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Architecto, odit unde. Commodi nisi eos nobis voluptatum
-                  beatae. Rem fugit maxime vitae nihil aliquid enim, tenetur
-                  voluptatibus repudiandae ad, accusamus nisi architecto
-                  reiciendis vel, ratione molestiae? Tenetur quia deserunt odio
-                  magni.
-                </p>
-                <div className="helpful">
-                  <span>Helpful?</span>
-                  <img src="/imgs/like.svg" alt="like" />
-                  <span>Yes</span>
-                  <img src="/imgs/dislike.svg" alt="dislike" />
-                  <span>No</span>
-                </div>
-              </div>
-              <hr />
-              <div className="item">
-                <div className="user">
-                  <img src="/imgs/avatar.jpg" alt="avatar" />
-                  <div className="info">
-                    <span>John Doe</span>
-                    <div className="country">
-                      <img src="/imgs/usa-flag.png" alt="flag" />
-                      <span>United States</span>
-                    </div>
-                  </div>
-                </div>
-                {!isNaN(data.totalStars / data.starNumber) && (
-                  <div className="stars">
-                    {Array(Math.round(data.totalStars / data.starNumber))
-                      .fill()
-                      .map((image, index) => (
-                        <img src="/imgs/star.svg" alt="" key={index} />
-                      ))}
-                    <span>{Math.round(data.totalStars / data.starNumber)}</span>
-                  </div>
-                )}
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Architecto, odit unde. Commodi nisi eos nobis voluptatum
-                  beatae. Rem fugit maxime vitae nihil aliquid enim, tenetur
-                  voluptatibus repudiandae ad, accusamus nisi architecto
-                  reiciendis vel, ratione molestiae? Tenetur quia deserunt odio
-                  magni.
-                </p>
-                <div className="helpful">
-                  <span>Helpful?</span>
-                  <img src="/imgs/like.svg" alt="like" />
-                  <span>Yes</span>
-                  <img src="/imgs/dislike.svg" alt="dislike" />
-                  <span>No</span>
-                </div>
-              </div>
-            </div>
+            )}
+            <Reviews gigId={id} />
           </div>
           <div className="right">
             <div className="content">
