@@ -5,7 +5,7 @@ import "./Review.scss";
 
 export const Review = ({ review }) => {
   const { isLoading, error, data } = useQuery({
-    queryKey: ["reviewUser"],
+    queryKey: [review.userId],
     queryFn: () =>
       newRequest.get(`api/users/${review.userId}`).then((res) => res.data),
   });
@@ -23,6 +23,7 @@ export const Review = ({ review }) => {
             <div className="info">
               <span>{data.username}</span>
               <div className="country">
+                {" "}
                 <span>{data.country}</span>
               </div>
             </div>
@@ -49,3 +50,5 @@ export const Review = ({ review }) => {
     </>
   );
 };
+
+// !TODO => review. Post review! fix error + add style for review field
